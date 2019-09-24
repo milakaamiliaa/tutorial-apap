@@ -1,6 +1,7 @@
+
 # Tutorial APAP
 ## Authors
-* **Siti Kaamiliaa Hasnaa** - *1706984732* - *C*
+**Siti Kaamiliaa Hasnaa** - *1706984732* - *C*
 
 ---
 ## Tutorial 1
@@ -29,3 +30,25 @@ Karena …
 (Anda dapat membuat tampilan code dalam README.md menjadi lebih baik. Cari tahu lebih dalam
 tentang penulisan README.md pada github pada link
 [berikut](https://help.github.com/en/articles/basic-writing-and-formatting-syntax))
+
+## Tutorial 2
+
+### Pertanyaan 
+1. Cobalah untuk menambahkan sebuah restoran dengan mengakses link berikut: 
+http://localhost:8080/restoran/add?idRestoran=1&nama=PanyuFC&alamat=Kantin%20Fasilkom&nomorTelepon=14022 
+Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+
+Muncul halaman error yang dikarenakan nomorTelepon yang kita set pada constructor berbentuk String namun yang diterima merupakan Integer.
+
+2. Cobalah untuk menambahkan sebuah restoran dengan mengakses link berikut: 
+http://localhost:8080/restoran/add?idRestoran=2&nama=KentukuFC&alamat=Kantin%20FIK 
+Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+
+Muncul lagi halaman error, hal ini disebabkan oleh link yang kita akses tidak menyediakan informasi nomorTelepon, sedangkan constructor kelas Restoran membutuhkan nomorTelepon.
+
+3. Jika Papa APAP ingin melihat restoran PanyuFC, link apa yang harus diakses?
+Kita dapat mengakses dengan link berikut http://localhost:8080/restoran/view?idRestoran=1
+
+4. Tambahkan 1 contoh restoran lainnya sesukamu. Lalu cobalah untuk mengakses http://localhost:8080/restoran/viewall, apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.
+Dia akan menampilkan semua restoran yang telah kita tambahkan pada list. Setelah restoran berhasil ditambahkan maka akan keluar halaman seperti [berikut](https://i.imgur.com/ONCo9EW.png)
+dan jika ingin kita lihat daftar keseluruhannya akan keluar seperti [berikut](https://i.imgur.com/al7Egss.png)
