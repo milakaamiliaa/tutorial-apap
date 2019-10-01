@@ -52,3 +52,26 @@ Kita dapat mengakses dengan link berikut http://localhost:8080/restoran/view?idR
 4. Tambahkan 1 contoh restoran lainnya sesukamu. Lalu cobalah untuk mengakses http://localhost:8080/restoran/viewall, apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.
 Dia akan menampilkan semua restoran yang telah kita tambahkan pada list. Setelah restoran berhasil ditambahkan maka akan keluar halaman seperti [berikut](https://i.imgur.com/ONCo9EW.png)
 dan jika ingin kita lihat daftar keseluruhannya akan keluar seperti [berikut](https://i.imgur.com/al7Egss.png)
+
+## Tutorial 3
+#### Github
+    1. Pada class MenuDb, terdapat method findByRestoranIdRestoran, apakah kegunaan dari method tersebut?
+
+Untuk mencari list menu yang dicari berdasarkan IdRestoran, jika ID sesuai maka akan mengembalikan list menu yang terdapat pada restoran tersebut.
+
+    2. Pada class RestoranController, jelaskan perbedaan method addRestoranFormPage dan addRestoranSubmit?
+
+Method addRestoranFormPage mengembalikan halaman untuk mengisi data restoran dan pada html-nya akan mengambil data yang sudah diisi. Sedangkan addRestoranSubmit untuk memasukkan data yang sudah diisi ke dalam database.
+
+    3. Jelaskan apa kegunaan dari JPA Repository?
+
+JPA Repository digunakan untuk mempermudah memetakan objek-objek java ke dalam relational database dan pembuatan table pada Java. Dengan JPA dapat mudah untuk melakukan Create, Delete, dan Update. JPA adalah ORM (Object Relational Mapping) yang berfungsi sebagai penghubung database dan model. JPA dapat berfungsi sebagai sekuriti yang dapat menghindari SQL injection. 
+
+    4. Sebutkan dan jelaskan di bagian kode mana sebuah relasi antara RestoranModel dan MenuModel dibuat?
+Pada kode @OneToMany dan @ManyToOne. Yang dimana @OneToMany menunjukkan satu restoran memiliki banyak menu dan @ManyToOne berarti banyak menu terdapat di satu restoran.
+
+    5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER
+
+FetchType.LAZY digunakan ketika ingin mengambil data yang dibutuhkan 
+CascadeType.ALL digunakan untuk melakukan perubahan update atau delete ke semua entitas yang berhubungan dengan suatu entitas. 
+FetchType.EAGER digunakan ketika ingin mengambil terlebih dahulu data yang dibutuhkan, sehingga saat dibutuhkan data yang ingin diambil sudah ada.
