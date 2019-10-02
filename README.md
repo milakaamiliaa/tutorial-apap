@@ -88,15 +88,12 @@ Menambahkan th:text=${brand} pada class navbar-brand di fragment.html lalu menam
 
     2. Jelaskan yang anda pelajari dari latihan nomor 3, dan jelaskan tahapan bagaimana anda menyelesaikan latihan nomor 3
 
-APAYA
+Karena kita membutuhkan banyak fields sekaligus, kita bisa menggunakan ArrayList. Kita dapat menambahkan row fields sehingga membutuhkan tombol addRow yang menambah index di arrayList. Selain itu, kita juga dapat menghapus suatu row, sehingga kita butuh removeRow, Karena kita punya banyak value di dalam arrayList, kita save dengan for loop untuk menyimpan semuanya. Maka pada fungsi save kita menambahkan for loop arrayList saat men-post form.
 
     3. Jelaskan perbedaan th:include dan th:replace
 
 th:replace akan mengganti tag dengan yang ada di fragment, jadi dia akan menggantikan si host tag dengan fragment tag dan isinya. Sedangkan th:include akan memasukkan fragmen sebagai body dari host tag namun tidak akan ikut memasukkan fragment tag nya
 
-    4. Sebutkan dan jelaskan di bagian kode mana sebuah relasi antara RestoranModel dan MenuModel dibuat?
-Pada kode @OneToMany dan @ManyToOne. Yang dimana @OneToMany menunjukkan satu restoran memiliki banyak menu dan @ManyToOne berarti banyak menu terdapat di satu restoran.
-
-    5. Jelaskan bagaimana penggunaan th:object beserta tujuannya
+    4. Jelaskan bagaimana penggunaan th:object beserta tujuannya
 
 th:object digunakan untuk menentukan objek mana yang akan diisi dari input form. th:object digunakan seperti attribut pada tag form dan diisi dengan ${namaObject}
