@@ -54,12 +54,10 @@ public class RestoranController {
             @RequestParam(value = "idRestoran") Long idRestoran, Model model
     ) {
         RestoranModel restoran = restoranService.getRestoranByIdRestoran(idRestoran).get();
-        if (restoran == null) {
-            return "id-restoran-not-found";
-        }
-        model.addAttribute("resto", restoran);
+
         List<MenuModel> menuList = menuService.findAllMenuByIdRestoran(restoran.getIdRestoran());
-        model.addAttribute("menuList", menuList);
+        restoran.setListMenu(menuList);
+        model.addAttribute("resto", restoran);
         return "view-restoran";
     }
 

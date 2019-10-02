@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://thymeLeaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>DELETED</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
+<nav th:replace="fragments/fragment :: navbar(brand = 'Resto Deleted')"></nav>
+
 <h2>Selamat restoran berhasil dihapus!</h2>
 </body>
 </html>

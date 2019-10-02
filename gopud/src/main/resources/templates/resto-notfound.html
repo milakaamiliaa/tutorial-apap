@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://thymeLeaf.org" xmlns="http://www.w3.org/1999/html">
+
 <head>
     <title>MAAF</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+
 </head>
 <body>
+<nav th:replace="fragments/fragment :: navbar(brand = 'Not Found')"></nav>
+
 <h2>Restoran tidak ditemukan.</h2>
 </body>
 </html>
