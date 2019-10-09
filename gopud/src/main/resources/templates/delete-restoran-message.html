@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeLeaf.org">
+<html xmlns:th="http://thymeLeaf.org" xmlns="http://www.w3.org/1999/html">
+
 <head>
     <meta charset="UTF-8">
     <title>Error Message</title>
+
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+
 </head>
 <body>
+
+<nav th:replace="fragments/fragment :: navbar(brand = 'Process Canceled')"></nav>
+
 <h1 th:text="'MAAF'"></h1>
 <h2 th:text="'Restoran memiliki menu. Proses dibatalkan'"></h2>
 </body>

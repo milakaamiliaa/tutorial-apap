@@ -1,4 +1,5 @@
 
+
 # Tutorial APAP
 ## Authors
 **Siti Kaamiliaa Hasnaa** - *1706984732* - *C*
@@ -75,3 +76,24 @@ Pada kode @OneToMany dan @ManyToOne. Yang dimana @OneToMany menunjukkan satu res
 FetchType.LAZY digunakan ketika ingin mengambil data yang dibutuhkan 
 CascadeType.ALL digunakan untuk melakukan perubahan update atau delete ke semua entitas yang berhubungan dengan suatu entitas. 
 FetchType.EAGER digunakan ketika ingin mengambil terlebih dahulu data yang dibutuhkan, sehingga saat dibutuhkan data yang ingin diambil sudah ada.
+
+## Tutorial 4
+#### Pertanyaan
+    1. Jelaskan yang anda pelajari dari melakukan latihan nomor 2, dan jelaskan tahapan bagaimana anda menyelesaikan latihan nomor 2
+
+Menambahkan th:text=${brand} pada class navbar-brand di fragment.html lalu menambahkan (brand = 'NamaYangDiinginkan) pada navbar th:replace semua file html seperti berikut. 
+```
+<nav th:replace="fragments/fragment :: navbar(brand = 'Add Restoran')"></nav>
+```
+
+    2. Jelaskan yang anda pelajari dari latihan nomor 3, dan jelaskan tahapan bagaimana anda menyelesaikan latihan nomor 3
+
+Karena kita membutuhkan banyak fields sekaligus, kita bisa menggunakan ArrayList. Kita dapat menambahkan row fields sehingga membutuhkan tombol addRow yang menambah index di arrayList. Selain itu, kita juga dapat menghapus suatu row, sehingga kita butuh removeRow, Karena kita punya banyak value di dalam arrayList, kita save dengan for loop untuk menyimpan semuanya. Maka pada fungsi save kita menambahkan for loop arrayList saat men-post form.
+
+    3. Jelaskan perbedaan th:include dan th:replace
+
+th:replace akan mengganti tag dengan yang ada di fragment, jadi dia akan menggantikan si host tag dengan fragment tag dan isinya. Sedangkan th:include akan memasukkan fragmen sebagai body dari host tag namun tidak akan ikut memasukkan fragment tag nya
+
+    4. Jelaskan bagaimana penggunaan th:object beserta tujuannya
+
+th:object digunakan untuk menentukan objek mana yang akan diisi dari input form. th:object digunakan seperti attribut pada tag form dan diisi dengan ${namaObject}

@@ -1,26 +1,53 @@
 <!DOCTYPE html>
-<html xmlns:th>
+<html xmlns:th="http://thymeLeaf.org" xmlns="http://www.w3.org/1999/html">
+
 <head>
+
     <meta charset="UTF-8">
     <title>Add Menu</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+
+
 </head>
 <body>
+<nav th:replace="fragments/fragment :: navbar(brand = 'Add Menu')"></nav>
+
 <h3> Tambah Produk </h3>
-<form th:action="@{/menu/add}" th:object="${menu}" method="POST">
-    <input type="hidden" th:field="*{restoran}"/>
-    Nama: <br>
-    <input type="text" name="nama"/>
-    <br>
-    Deskripsi: <br>
-    <input type="text" name="deskripsi"/>
-    <br>
-    Harga: <br>
-    <input type="number" name="harga"/>
-    <br>
-    durasiMasak (menit): <br>
-    <input type="number" name="durasiMasak"/>
-    <br>
-    <button type="submit">Submit</button>
+<form th:action="@{/menu/add/}+${restoran.idRestoran}" th:object="${restoran}" method="POST">
+    <input type="hidden" th:field="*{idRestoran}"/>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Nama:</th>
+            <th scope="col">Deskripsi:</th>
+            <th scope="col">Harga</th>
+            <th scope="col">Durasi Masak (menit):</th>
+            <th scope="col"><input type="submit" value="Add Row" name="addRow"/></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="menu, iterationStatus : *{listMenu}">
+            <td><input type="text" th:field="*{listMenu[__${iterationStatus.index}__].nama}"></td>
+            <td><input type="text" th:field="*{listMenu[__${iterationStatus.index}__].deskripsi}"></td>
+            <td><input type="number" th:field="*{listMenu[__${iterationStatus.index}__].harga}"></td>
+            <td><input type="number" th:field="*{listMenu[__${iterationStatus.index}__].durasiMasak}"></td>
+            <td><button type="submit" name="removeRow" th:value="${iterationStatus.index}" class="btn btn-primary">Hapus</button></td>
+        </tr>
+
+
+        </tbody>
+    </table>
+    <button type="submit" name="save" class="btn btn-primary">Submit</button>
 </form>
+
+
+</div>
+
 </body>
 </html>

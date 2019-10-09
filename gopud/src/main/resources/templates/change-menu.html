@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://thymeLeaf.org" xmlns="http://www.w3.org/1999/html">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Ubah Menu</title>
+
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+
 </head>
 <body>
+
+<nav th:replace="fragments/fragment :: navbar('Change Menu')"></nav>
+
 <h2 th:text="'Menu dengan nama '+ ${menu.nama} + ' berhasil diubah'"></h2>
 </body>
 </html>
