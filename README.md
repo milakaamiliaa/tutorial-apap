@@ -1,5 +1,6 @@
 
 
+
 # Tutorial APAP
 ## Authors
 **Siti Kaamiliaa Hasnaa** - *1706984732* - *C*
@@ -97,3 +98,25 @@ th:replace akan mengganti tag dengan yang ada di fragment, jadi dia akan menggan
     4. Jelaskan bagaimana penggunaan th:object beserta tujuannya
 
 th:object digunakan untuk menentukan objek mana yang akan diisi dari input form. th:object digunakan seperti attribut pada tag form dan diisi dengan ${namaObject}
+
+## Tutorial 5
+#### Pertanyaan
+    1. Jelaskan bagian mana saja dari test yang dibuat pada latihan no 2 adalah given, when, dan and then
+
+given merupakan inisiasi dari dummy, mengatur attribut-attribut dari dummy tersebut mengatur return dari database, sampai pemanggilan when. ketika menggunakan service. Bagian when berupa pemanggilan mockMvc.perform(get("/store/view?idStore=1")) yang akan langsung berinteraksi dengan controller dan mengembalikan halaman berdasarkan controller. Lalu and then berupa pemanggilan method .andExpect(...) yang berfungsi untuk melakukan pengecekan interaksi sesuai dengan yang diharapkan.
+
+    2. Jelaskan perbedaan line coverage dan logic coverage.
+
+Line coverage adalah ukuran berapa banyak baris kode yang sudah ter-cover udah unit test tapi tidak termasuk comments, conditionals dsb.
+
+Logic coverage adalah ukuran berapa banyak internal struktur kode seperti requirements dan decisions yang tercover oleh unit testing. 
+
+    3. Pada keadaan ideal, apa yang seharusnya dibuat terlebih dahulu, code atau unit test? Mengapa seperti itu? Apa akibatnya jika urutannya dibalik, adakah risiko tak terlihat yang mungkin terjadi?
+    
+Idealnya adalah unit test perlu dibuat sebelum kita memulai membuat code, karena dari unit test kita dapat mengetahui kriteria atau requirements apa saja yang kode kita perlu penuhi, mudah menemukan error dan memperbaikinya. 
+Jika kita membuat testing setelah membuat code, apa yang telah kita buat akan menjadi lebih sulit untuk di test karena dapat terjadi kita harus menyesuaikan kode kita agar dapat lulus automated test. Lalu dapat terjadi juga apa yang telah kita buat ternyata lebih kompleks dari apa yang dibutuhkan atau over engineering. 
+
+    4. [Bonus] Jelaskan mengapa pada latihan no 3, main class spring tidak diikutsertakan ke dalam perhitungan coverage? Apa saja yang dapat menyebabkan suatu class dapat di-exclude dari perhitungan code coverage.
+
+Main class Spring tidak memerlukan testing karena class tersebut digunakan untuk menginisiasikan spring. 
+Yang dapat menyebabkan class di exclude dalam code coverage adalah file built-in, file yang tidak memiliki bisnis proses, dan jika dikehendaki class yang memiliki code coverage yang rendah.

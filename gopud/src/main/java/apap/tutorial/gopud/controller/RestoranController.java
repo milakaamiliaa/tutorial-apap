@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 public class RestoranController {
@@ -43,9 +45,9 @@ public class RestoranController {
 
     @RequestMapping(value = "restoran/view-all", method = RequestMethod.GET)
     public String viewAll(Model model) {
-        List<RestoranModel> allRestoran = restoranService.getRestoranList();
-        Collections.sort(allRestoran);
-        model.addAttribute("restoList", allRestoran);
+        List<RestoranModel> restoList = restoranService.getRestoranList();
+        Collections.sort(restoList);
+        model.addAttribute("restoList", restoList);
         return "viewall-restoran";
     }
 
@@ -55,8 +57,8 @@ public class RestoranController {
     ) {
         RestoranModel restoran = restoranService.getRestoranByIdRestoran(idRestoran).get();
 
-        List<MenuModel> menuList = menuService.findAllMenuByIdRestoran(restoran.getIdRestoran());
-        restoran.setListMenu(menuList);
+        Optional<MenuModel> menuList = menuService.findAllMenuByIdRestoran(restoran.getIdRestoran());
+        restoran.setListMenu(menuList.stream().collect(Collectors.toList()));
         model.addAttribute("resto", restoran);
         return "view-restoran";
     }

@@ -22,8 +22,8 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public List<MenuModel> findAllMenuByIdRestoran(Long idRestoran) {
-        return menuDb.findByRestoranIdRestoran(idRestoran);
+    public Optional<MenuModel> findAllMenuByIdRestoran(Long idRestoran) {
+        return menuDb.findById(idRestoran);
     }
 
     @Override
