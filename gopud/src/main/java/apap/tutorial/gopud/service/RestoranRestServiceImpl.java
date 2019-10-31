@@ -82,4 +82,9 @@ public class RestoranRestServiceImpl implements RestoranRestService{
         data.add("nomorTelepon", "028102810");
         return this.webClient.post().uri("rest/restoran/full").syncBody(data).retrieve().bodyToMono(RestoranDetail.class);
     }
+
+    @Override
+    public Mono<String> getRecipe(String menu, String bahan) {
+        return this.webClient.get().uri("https://api.spoonacular.com/recipes/complexSearch?apiKey=188c18c53094400ea6bf6a5cdd2cdf21&cuisine="+menu+"&excludeIngredients="+bahan).retrieve().bodyToMono(String.class);
+    }
 }
