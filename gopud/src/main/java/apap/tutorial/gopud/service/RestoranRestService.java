@@ -23,4 +23,6 @@ public interface RestoranRestService {
 
     Mono<String> getRecipe(String menu, String bahan);
 
+    Mono<String> getChefName(String chefName);
+
 }

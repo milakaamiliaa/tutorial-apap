@@ -2,8 +2,6 @@ package apap.tutorial.gopud.service;
 
 import apap.tutorial.gopud.model.RestoranModel;
 import apap.tutorial.gopud.repository.RestoranDB;
-//import apap.tutorial.gopud.rest.RestoranDetail;
-//import apap.tutorial.gopud.Setting;
 import apap.tutorial.gopud.rest.RestoranDetail;
 import apap.tutorial.gopud.rest.Setting;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,5 +84,10 @@ public class RestoranRestServiceImpl implements RestoranRestService{
     @Override
     public Mono<String> getRecipe(String menu, String bahan) {
         return this.webClient.get().uri("https://api.spoonacular.com/recipes/complexSearch?apiKey=188c18c53094400ea6bf6a5cdd2cdf21&cuisine="+menu+"&excludeIngredients="+bahan).retrieve().bodyToMono(String.class);
+    }
+
+    @Override
+    public Mono<String> getChefName(String nama){
+        return this.webClient.get().uri("https://1b9f0f25-7f24-4c84-bc83-3ded0830c3f8.mock.pstmn.io/api/v1/restoran/chef?nama="+nama).retrieve().bodyToMono(String.class);
     }
 }
