@@ -132,3 +132,26 @@ Yang dapat menyebabkan class di exclude dalam code coverage adalah file built-in
 
 3. Apa itu ResponseEntity dan apa kegunaannya?
 - ResponseEntity mewakili seluruh respons HTTP seperti kode status, header, dan body. Maka kita dapat menggunakannya untuk mengkonfigurasi respons HTTP sepenuhnya.
+
+
+## Tutorial 7
+###Latihan
+1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode
+yang telah anda buat) konsep tersebut diimplementasi?
+
+- Perbedaannya adalah otentikasi merupakan proses memeriksa detail pengguna untuk mengidentifikasinya dan memberikan akses ke sistem sementara otorisasi merupakan proses memeriksa izin pengguna yang diotentikasi untuk mengakses sumber daya sistem.
+
+
+2. Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerjanya!
+
+- BCryptPasswordEncoder adalah fungsi spring untuk melakukan hashing password. BCryptPasswordEncoder menghitung dan menghasilkan hash secara acak setiap kali di call.
+
+
+3. Jelaskan secara singkat apa itu UUID dan mengapa kita memakai UUID di UserModel.java?
+
+- UUID (Universally Unique Identifier) adalah 36 karakter (string) yang dibuat secara acak dengan teknik khusus yang terdiri dari 32 karakter alphanumerik dan 4 karakter tanda hubung (strip), sangat kecil kemungkinan sebuah karakter UUID akan sama bahkan jika di-generate dalam tempo 1 detik sekalipun. Umumnya dia digunakan sebagai Primary Key. UUID digunakan untuk menghindari konflik primary key dan juga untuk mengamankan data.
+
+  
+4. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut
+padahal kita sudah memiliki class UserRoleServiceImpl.java?
+- UserServiceImpl ada pada package service, sementara UserDetailServiceImpl pada package security. Service ini melakuakn import dari org.springframework.security.core.userdetails.UserDetailsService yang berisi antarmuka inti yang memuat data khusus pengguna
