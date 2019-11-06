@@ -1,6 +1,7 @@
 package apap.tutorial.gopud.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -12,6 +13,7 @@ import java.math.BigInteger;
 
 @Entity
 @Table(name="menu")
+@JsonIgnoreProperties(value = {"restoran"}, allowSetters = true)
 public class MenuModel implements Serializable {
 
     @Id
@@ -39,7 +41,6 @@ public class MenuModel implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name="restoranId", referencedColumnName = "idRestoran", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
     private RestoranModel restoran;
 
     public Long getId() {

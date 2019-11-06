@@ -120,3 +120,15 @@ Jika kita membuat testing setelah membuat code, apa yang telah kita buat akan me
 
 Main class Spring tidak memerlukan testing karena class tersebut digunakan untuk menginisiasikan spring. 
 Yang dapat menyebabkan class di exclude dalam code coverage adalah file built-in, file yang tidak memiliki bisnis proses, dan jika dikehendaki class yang memiliki code coverage yang rendah.
+
+
+---
+## Tutorial 6
+1. Apa itu postman? Apa kegunaan dari postman?
+- Postman adalah sebuah aplikasi (berupa plugin) untuk browser chrome sebagai REST Client atau istilahnya adalah aplikasi yang digunakan untuk melakukan uji coba REST API yang telah kita buat. Fungsinya sebagai GUI API Caller, Sharing Collection API for Documentation (free), Testing API (free), Realtime Collaboration Team (paid), Monitoring API (paid), Integration (paid). Pertama kali postman muncul sebagai add on dari Chrome namun sekarang sudah menjadi aplikasi.
+
+2. Apa kegunaan dari annotation @JsonIgnoreProperties?
+- Digunakan untuk menekan serialisasi properti (selama serialisasi), atau mengabaikan pemrosesan properti JSON yang dibaca (saat deserialisasi).
+
+3. Apa itu ResponseEntity dan apa kegunaannya?
+- ResponseEntity mewakili seluruh respons HTTP seperti kode status, header, dan body. Maka kita dapat menggunakannya untuk mengkonfigurasi respons HTTP sepenuhnya.
