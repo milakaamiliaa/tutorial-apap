@@ -155,3 +155,24 @@ yang telah anda buat) konsep tersebut diimplementasi?
 4. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut
 padahal kita sudah memiliki class UserRoleServiceImpl.java?
 - UserServiceImpl ada pada package service, sementara UserDetailServiceImpl pada package security. Service ini melakuakn import dari org.springframework.security.core.userdetails.UserDetailsService yang berisi antarmuka inti yang memuat data khusus pengguna
+
+
+## Tutorial 8
+###Latihan
+1. Hilangkan checkbox pada item di list bagian kiri
+
+- 
+
+2. Buatlah mekanisme agar bagian kiri hanya melakukan operasi add
+
+- 
+
+
+3. Buatlah toggle dimana jika toggle ON, maka My Favorite ditampilkan. Jika toggle OFF, maka sembunyikan.
+
+- ![alt text](https://media1.tenor.com/images/b16cb4e845e96358b4b5f0ff10efe306/tenor.gif?itemid=5447798)
+
+  
+4. Jika daftar favorit kosong, maka tampilkan empty state. Hint: buat component bernama EmptyState
+
+- Membuat component EmptyState yang berisi html yang menginformasikan bahwa favorite kosong (seperti di gambar). Jika favorite items kosong atau panjang arraynya adalah 0 maka akan dicek apakah favItems.length = 0, jika iya maka akan menampilkan EmptyState
