@@ -7,8 +7,6 @@ export default function List(props) {
             fontFamily: "courier new"
         }
     };
-
-
     return(
         <>
         <h3 style={styles.heading}>{props.title}</h3>
