@@ -1,17 +1,22 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import AppClass from './App';
+import AppFunc from './AppFunc';
+import * as serviceWorker from './serviceWorker';
 
-export class Enthused extends React.Component {
-  componentDidMount() {
-    this.interval = setInterval(() => {
-      this.props.addText('!');
-    }, 15);
-  }
+ReactDOM.render(
+    <>
+    <div className="mt-5"/>
+    <AppClass />
+    <div className="mt-5 mb-5"/>
+    <AppFunc />
+    <div className="mt-5 mb-5" />
+    </>,
+    document.getElementById("root")
+);
 
-  render() {
-    return (
-      <button onClick={this.props.toggle}>
-        Stop!
-      </button>
-    );
-  }
-}
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();

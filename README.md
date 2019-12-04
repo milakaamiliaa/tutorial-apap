@@ -1,6 +1,3 @@
-
-
-
 # Tutorial APAP
 ## Authors
 **Siti Kaamiliaa Hasnaa** - *1706984732* - *C*
@@ -134,8 +131,29 @@ Yang dapat menyebabkan class di exclude dalam code coverage adalah file built-in
 - ResponseEntity mewakili seluruh respons HTTP seperti kode status, header, dan body. Maka kita dapat menggunakannya untuk mengkonfigurasi respons HTTP sepenuhnya.
 
 
+## Tutorial 7
+###Latihan
+1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode
+yang telah anda buat) konsep tersebut diimplementasi?
 
----
+- Perbedaannya adalah otentikasi merupakan proses memeriksa detail pengguna untuk mengidentifikasinya dan memberikan akses ke sistem sementara otorisasi merupakan proses memeriksa izin pengguna yang diotentikasi untuk mengakses sumber daya sistem.
+
+
+2. Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerjanya!
+
+- BCryptPasswordEncoder adalah fungsi spring untuk melakukan hashing password. BCryptPasswordEncoder menghitung dan menghasilkan hash secara acak setiap kali di call.
+
+
+3. Jelaskan secara singkat apa itu UUID dan mengapa kita memakai UUID di UserModel.java?
+
+- UUID (Universally Unique Identifier) adalah 36 karakter (string) yang dibuat secara acak dengan teknik khusus yang terdiri dari 32 karakter alphanumerik dan 4 karakter tanda hubung (strip), sangat kecil kemungkinan sebuah karakter UUID akan sama bahkan jika di-generate dalam tempo 1 detik sekalipun. Umumnya dia digunakan sebagai Primary Key. UUID digunakan untuk menghindari konflik primary key dan juga untuk mengamankan data.
+
+  
+4. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut
+padahal kita sudah memiliki class UserRoleServiceImpl.java?
+- UserServiceImpl ada pada package service, sementara UserDetailServiceImpl pada package security. Service ini melakuakn import dari org.springframework.security.core.userdetails.UserDetailsService yang berisi antarmuka inti yang memuat data khusus pengguna
+
+
 ## Tutorial 8
 1. Ceritakan langkah - langkah yang kalian lakukan untuk solve LATIHAN no.1, dan mengapa kalian melakukan langkah - langkah tersebut?
 - Menambahkan setState pada Restorans.js -> this.setState({nama: "", alamat:"", nomorTelepon:"", rating:""}); Karena jika tidak di setState menggunakan string kosong, form yang ditampilkan ketika add restoran akan terisi dengan informasi yang sudah diinput sebelumnya.
@@ -159,3 +177,35 @@ ShouldComponentUpdate: fungsi ini selalu dipanggil sebelum dirender yang akan me
 componentDidUpdate: fungsi ini dipanggil setelah fungsi render. Fungsi ini serupa dengan componentDidMount, dapat digunakan untuk melakukan operasi DOM setelah data diperbaharui
 componentWillReceiveProps: fungsi ini akan dipanggil ketika props sudah berubah dan tidak pada saat rendering awal. Fungsi ini akan melakukan perubahan state berdasarkan pada props yang sekarang dan props yang baru.
 componentWillUnmount: fungsi ini dipanggil ketika komponen sudah dibuang dari DOM. Fungsi ini digunakan ketika aksi-aksi yang berhubungan dengan pembersihan diperlukan. Use case nya adalah ketika membuang timer yang sebelumnya didefinisikan di componentDidMount. Urutan pemanggilannya sebagai berikut Mounting: componentWillMount -> render -> componentDidMount Updating: componentWillReceiveProps -> shouldcomponentupdate -> true -> componentWillUpdate -> render -> componentDidUpdate Unmouting: componentWillUnmount
+
+
+## Tutorial 9
+###Latihan
+1. Hilangkan checkbox pada item di list bagian kiri
+
+- Kita dapat mengatur type dari input form yang ada di component Items dengan props. Dengan menambah props di component List untuk di pass ke component items dia akan diterima List dari component parentnya yaitu App. Value dari props inputType adalah type dari input tersebut untuk list di sebelah kiri type inputnya adalah "hidden" sedangkan list di kolom kanan yaitu list Favorites input typenya "checkbox".
+ ![Component List](https://i.imgur.com/Z8lc4fu.png)
+ ![Component Item](https://i.imgur.com/YXzz8n2.png)
+ ![kolom kiri](https://i.imgur.com/OrZlzJU.png)
+ ![kolom favorite](https://i.imgur.com/6mdffgx.png)
+
+2. Buatlah mekanisme agar bagian kiri hanya melakukan operasi add
+
+-  membuat satu function yang tidak melakukan splice pada array newItems.
+Function handleItemClick untuk item bagian kiri dan handleFavItemClick untuk item pada bagian kanan.
+ ![kolom kiri](https://i.imgur.com/OrZlzJU.png)
+ ![kolom favorit](https://i.imgur.com/6mdffgx.png)
+ ![Function](https://i.imgur.com/xBSwCeR.png)
+
+
+3. Buatlah toggle dimana jika toggle ON, maka My Favorite ditampilkan. Jika toggle OFF, maka sembunyikan.
+
+- Input checkbox pada onChange menggunakan handleChange yang mengubah state checked. Lalu loadFav digunakan untuk merender JSX favItems saat array dari favItems tidak kosong.
+ ![State dan function handleChange](https://i.ibb.co/CVMfb0F/Screen-Shot-2019-11-13-at-20-11-54.png)
+ ![Function loadFav](https://i.ibb.co/FDL6ztN/Screen-Shot-2019-11-13-at-20-12-02.png)
+ ![implementasi function loadFav](https://i.ibb.co/tcZ0hHV/Screen-Shot-2019-11-13-at-20-12-10.png)
+  
+4. Jika daftar favorit kosong, maka tampilkan empty state. Hint: buat component bernama EmptyState
+
+- Membuat component EmptyState yang berisi html yang menginformasikan bahwa favorite kosong (seperti di gambar). Jika favorite items kosong atau panjang arraynya adalah 0 maka akan dicek apakah favItems.length = 0, jika iya maka akan menampilkan EmptyState
+![disaat panjang length 0 akan dikeluarkan emptystate](https://i.ibb.co/FDL6ztN/Screen-Shot-2019-11-13-at-20-12-02.png)
