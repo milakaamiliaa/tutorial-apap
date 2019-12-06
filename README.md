@@ -1,6 +1,3 @@
-
-
-
 # Tutorial APAP
 ## Authors
 **Siti Kaamiliaa Hasnaa** - *1706984732* - *C*
@@ -158,6 +155,31 @@ padahal kita sudah memiliki class UserRoleServiceImpl.java?
 
 
 ## Tutorial 8
+1. Ceritakan langkah - langkah yang kalian lakukan untuk solve LATIHAN no.1, dan mengapa kalian melakukan langkah - langkah tersebut?
+- Menambahkan setState pada Restorans.js -> this.setState({nama: "", alamat:"", nomorTelepon:"", rating:""}); Karena jika tidak di setState menggunakan string kosong, form yang ditampilkan ketika add restoran akan terisi dengan informasi yang sudah diinput sebelumnya.
+
+2. Jelaskan fungsi dari async dan await!
+- Async digunakan untuk mengatasi asynchronous pada javascript.
+Await digunakan untuk menunggu proses asynchronous selesai kemudian baru melanjutkan ke baris selanjutnya. Async digunakan sebelum fungsi dan tidak harus ada wait sedangkan await harus menggunakan async.
+
+3. Masukkan jawaban dari TODO (Screenshot) pada Component Lifecycle pada
+pertanyaan ini.
+- ![Memasukkan fungsi componentDidMount dan shouldComponentUpdate](https://i.imgur.com/HDXHplX.png)
+![Terlihat gambar seperti berikut setelah aplikasi dijalankan](https://i.imgur.com/QwXEBTM.png)
+![Terlihat shouldComponentUpdate tidak ada](https://i.imgur.com/G8RWbi8.png)
+![Setelah ditambahkan tombol, sebelum tombol dipencet](https://i.imgur.com/QcZQb6H.png)
+![Setelah dipencet maka akan keluar shouldComponentUpdate](https://i.imgur.com/5Ml165O.png)
+
+
+4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate, componentDidUpdate, componentWillReceiveProps, componentWillUnmount. Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “use case apa saja yang biasanya menggunakan lifecycle method tersebut”.
+- componentDidMount: fungsi ini dipanggil setelah component dirender. Fungsi ini proses pemanggilan ajax dan perubahan isi state setelah proses ajax dipanggil.
+ShouldComponentUpdate: fungsi ini selalu dipanggil sebelum dirender yang akan memungkinkan untuk mengatur apakah re-rendering diperlukan atau tidak. Fungsi initidak pernah dipanggil pada inisiasi dan harus mengembalikkan nilai yang berupa boolean (true atau false) tetapi best way nya fungsi ini mengembalikan false pada kondisi tertentu.
+componentDidUpdate: fungsi ini dipanggil setelah fungsi render. Fungsi ini serupa dengan componentDidMount, dapat digunakan untuk melakukan operasi DOM setelah data diperbaharui
+componentWillReceiveProps: fungsi ini akan dipanggil ketika props sudah berubah dan tidak pada saat rendering awal. Fungsi ini akan melakukan perubahan state berdasarkan pada props yang sekarang dan props yang baru.
+componentWillUnmount: fungsi ini dipanggil ketika komponen sudah dibuang dari DOM. Fungsi ini digunakan ketika aksi-aksi yang berhubungan dengan pembersihan diperlukan. Use case nya adalah ketika membuang timer yang sebelumnya didefinisikan di componentDidMount. Urutan pemanggilannya sebagai berikut Mounting: componentWillMount -> render -> componentDidMount Updating: componentWillReceiveProps -> shouldcomponentupdate -> true -> componentWillUpdate -> render -> componentDidUpdate Unmouting: componentWillUnmount
+
+
+## Tutorial 9
 ###Latihan
 1. Hilangkan checkbox pada item di list bagian kiri
 
