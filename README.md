@@ -2,6 +2,8 @@
 ## Authors
 **Siti Kaamiliaa Hasnaa** - *1706984732* - *C*
 
+This repo is used for my enterprise application architecture and programming course. We get weekly exercises and challenges to solve and make a lesson learned from.
+
 ---
 ## Tutorial 1
 ### What I have learned today
